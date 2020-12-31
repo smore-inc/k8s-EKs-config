@@ -8,7 +8,7 @@
 # https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-nodegroup-role.yaml
 
 AWSTemplateFormatVersion: '2010-09-09'
-Description: 'Amazon EKS Sample VPC - Private and Public subnets'
+Description: 'Full EKS environment creation'
 
 Parameters:
 
@@ -302,7 +302,7 @@ Resources:
     Properties:
       Name: !Sub '${AWS::StackName}-cluster'
       Version: '1.18'
-      RoleArn: !GetAtt eksClusterRole.Arn
+      RoleArn: !GetAtt EKSClusterRole.Arn
       ResourcesVpcConfig:
         SecurityGroupIds:
           - !Ref ControlPlaneSecurityGroup
@@ -349,3 +349,5 @@ Resources:
         - !Ref PublicSubnet02
         - !Ref PrivateSubnet01
         - !Ref PrivateSubnet02
+    DependsOn:
+      - Cluster
