@@ -1,4 +1,6 @@
 # https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.7/components.yaml
+# metrics server (not deployed by default with EKS)
+# required for collecting metrics
 
 ---
 apiVersion: rbac.authorization.k8s.io/v1
